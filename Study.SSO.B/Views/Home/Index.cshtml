@@ -1,0 +1,29 @@
+﻿@using Study.SSO.B.Filter
+@{
+    ViewBag.Title = "B网站";
+    var user = Common.CurrentUser;
+}
+
+<div class="jumbotron">
+    <h1>B网站</h1>
+    <p>
+        @if (Common.CurrentUser == null)
+        {
+            @Html.Raw("未登录")
+        }
+        else
+        {
+            @Html.Raw("用户Id" + Common.CurrentUser.UserId + "<p/>")
+            @Html.Raw("用户名称" + Common.CurrentUser.UserName)
+        }
+    </p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>A网站</h2>
+        <p>
+            <a class="btn btn-default" target="_blank" href="http://www.a.com:802">访问A网站 &raquo;</a>
+        </p>
+    </div>
+</div>
