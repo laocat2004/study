@@ -51,6 +51,11 @@ namespace Study.SSO.B.Filter
                 string reqToken = request["Token"];
                 string ticket = request["Ticket"];
                 Cache cache = HttpContext.Current.Cache;
+                //每次刷新页面的时候首先删除Token
+                if (string.IsNullOrEmpty(reqToken) || string.IsNullOrEmpty(ticket))
+                {
+                    cache.Remove(ConstantHelper.TOKEN_KEY);
+                }
                 //没有获取到Token或者Token验证不通过或者没有取到从P回调的ticket 都进行再次请求P
                 TokenModel tokenModel= cache.Get(ConstantHelper.TOKEN_KEY)==null?null:(TokenModel)cache.Get(ConstantHelper.TOKEN_KEY);
                 if (string.IsNullOrEmpty(reqToken) || tokenModel == null || tokenModel.Token!= reqToken ||
