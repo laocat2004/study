@@ -3,7 +3,7 @@
  所属项目：Study.DesignPartern.Observer
  创 建 人：hxfsp
  创建日期：2016/10/27 23:04:21
- 用    途：
+ 用    途：观察者模式
 ========================================================================*/
 using System;
 using System.Collections.Generic;

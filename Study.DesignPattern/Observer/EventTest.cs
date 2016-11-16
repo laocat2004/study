@@ -10,14 +10,14 @@ namespace Study.DesignPartern.Observer
     {
         public static void Test()
         {
-            AccountEvent he = new AccountEvent("小何");
-            SmsNotify sms = new SmsNotify();
-            WeChatNotify wechat = new WeChatNotify();
-            EmailNotify email = new EmailNotify();
-            he.NotifyHandler += sms.NotifySms;
-            he.NotifyHandler += wechat.NotifyWeChat; ;
-            he.NotifyHandler += email.NotifyEmail;
-            he.Notify();
+            AccountEvent he = new AccountEvent(10000,"小何");
+            Email email = new Email();
+            Sms sms = new Sms();
+            he.Notify += email.SendEmail;
+            he.Notify += sms.SendSms;
+            he.Update(1000);
+            he.Update(4000);
+            Console.ReadLine();
         }
     }
 }

@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 namespace Study.DesignPartern.Observer
 {
     public delegate void UpdateEventHandler(string accountName);
-
+    /// <summary>
+    /// 观察者模式基于委托来实现
+    /// </summary>
     public class AccountDetegate
     {
         public UpdateEventHandler updateEventHandler;
