@@ -14,10 +14,15 @@ namespace Study.DesignPartern.Observer
             Email email = new Email();
             Sms sms = new Sms();
             he.Notify += email.SendEmail;
+            he.Notify += email.SendEmail;
             he.Notify += sms.SendSms;
             he.Update(1000);
             he.Update(4000);
-            Console.ReadLine();
+
+            AccountEvent he1 = new AccountEvent(100000, "小");
+            he1.Notify += sms.SendSms;
+            he1.Update(1000);
+            Console.ReadLine(); 
         }
     }
 }

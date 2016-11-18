@@ -14,6 +14,7 @@ namespace Study.DesignPartern
             //ObserverTest.Test();
             //ObserverDetegeTest.Test();
             //TestDetegate.Test();
+
             EventTest.Test();
             Console.ReadLine();
         }

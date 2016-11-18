@@ -19,6 +19,7 @@ namespace Study.DesignPartern.Observer
         public AccountVistit(string accountName) {
             this.accountName = accountName;
         }
+
         /// <summary>
         /// 账号发生改变
         /// </summary>

@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 namespace Study.DesignPartern.Observer
 {
     public delegate void UpdateEventHandler(string accountName);
+    //public delegate void UpdateEventHandler1(object sender,EventArgs e);
     /// <summary>
     /// 观察者模式基于委托来实现
     /// </summary>
     public class AccountDetegate
     {
-        public UpdateEventHandler updateEventHandler;
+        public event UpdateEventHandler updateEventHandler;
+        //public event UpdateEventHandler1 updateEventHandler1;
         private string accountName = string.Empty;
         public AccountDetegate(string accountName)
         {
@@ -20,7 +22,13 @@ namespace Study.DesignPartern.Observer
         }
         public void Notify()
         {
-            updateEventHandler(accountName);
+            if (updateEventHandler != null)
+            {
+                //updateEventHandler1(new object() ,new EventArgs());
+                updateEventHandler(accountName);
+            }
         }
+
+
     }
 }
